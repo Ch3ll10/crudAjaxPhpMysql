@@ -3,9 +3,9 @@
   function conectar(){
 	$conn = null;
 	$host = '127.0.0.1';
-	$db	  = 'ejercicios';
-	$user = 'axel';
-	$pwd  = '123456';
+	$db	  = '';
+	$user = '';
+	$pwd  = '';
 
 	/*
 		PDO php de acces object lacual podemos hacer la conexion mas segura los datos contenidos en mysql o cualquier BD
