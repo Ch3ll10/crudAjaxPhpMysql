@@ -22,14 +22,20 @@ para que nuestro script en php se ejecutado enviandole los datos*/
 	return xmlhttp;
 }
 
-function Registrar(){
+function Registrar(id,accion){
 	nombre = document.frmClientes.nombre.value;
 	contrasena = document.frmClientes.contrasena.value;
 
 	//alert(nombre+" "+contrasena);
-
+	
 	ajax = objetoAjax();
-	ajax.open("POST", "clases/registrar.php",true);
+
+	if(accion == 'N'){
+		ajax.open("POST", "clases/registrar.php",true);
+	}
+	else if(accion == 'E'){
+	    ajax.open("POST", "clases/actualizar.php",true);
+	}
 
 	ajax.onreadystatechange=function(){
 		if(ajax.readyState==4){
@@ -39,7 +45,7 @@ function Registrar(){
 	}
 	//esta funcion es para ocultar los datos enviado por el usuario por el URL
 ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-ajax.send("nombre="+nombre+"&contrasena="+contrasena);
+ajax.send("nombre= "+nombre+" &contrasena= "+contrasena+" &id= "+id);
 
 }
 

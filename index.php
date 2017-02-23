@@ -20,7 +20,7 @@
       <div class="starter-template">
         <h1>CRUD with ajax php & mysql</h1>
         <p class="lead">Create Read Update Delete</p>
-        <button type="button" onclick="Modal();" class="btn btn-primary btn-lg" >
+        <button type="button" onclick="Nuevo();" class="btn btn-primary btn-lg" >
           <span class="glyphicon" aria-hidden="true"></span> Agregar un nuevo usuario
         </button>
       </div>
@@ -61,7 +61,7 @@
                     </button>
                     <ul class="dropdown-menu" role="menu">
                       <li><a>Eliminar</a></li>
-                      <li><a>Actualizar</a></li>
+                      <li><a onclick="Editar('<?php print($row->id);?>','<?php print($row->nombre);?>','<?php print($row->contrasena);?>')">Actualizar</a></li>
                     </ul>
                   </div>
                 </td>
@@ -84,7 +84,8 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <h4 class="modal-title">Nuevo Usuario</h4>
             </div>
-            <form role="form" action="" name="frmClientes" onsubmit="Registrar( ); return false">
+            <!--button type="button" onclick="B();" name="button">Ejemplo</button-->
+            <form role="form" action="" name="frmClientes" onsubmit="Registrar(id, accion); return false">
               <div class="col-lg-12">
                
                 <div class="form-group">
@@ -98,7 +99,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-info btn-lg">
-                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Registrar
+                  <span class="glyphicon" aria-hidden="true"></span> Registrar nuevo usuario
                 </button>
 
               </div>
@@ -114,7 +115,20 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
-      function Modal(){
+    var accion, id;
+
+      function Nuevo(){
+        accion = 'N';
+        document.frmClientes.nombre.value = "";
+        document.frmClientes.contrasena.value = "";
+        $('#modal').modal('show');
+      }
+
+      function Editar(id,nombre, contrasena){
+        accion = 'E';
+        id = id;
+        document.frmClientes.nombre.value = nombre;
+        document.frmClientes.contrasena.value = contrasena;
         $('#modal').modal('show');
       }
     </script>
