@@ -60,7 +60,8 @@
                       <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a>Eliminar</a></li>
+                      <li><a onclick="Eliminar('<?php print($row->id);?>')">Eliminar</a></li>
+                      
                       <li><a onclick="Editar('<?php print($row->id);?>','<?php print($row->nombre);?>','<?php print($row->contrasena);?>')">Actualizar</a></li>
                     </ul>
                   </div>
@@ -114,6 +115,7 @@
     </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
     <script type="text/javascript">
     var accion, id;
 
@@ -131,6 +133,12 @@
         document.frmClientes.contrasena.value = contrasena;
         $('#modal').modal('show');
       }
+
+      function Elminar(id){
+        id = id;
+        document.frmClientes.id.value = id;
+      }
+
     </script>
   </body>
   </html>

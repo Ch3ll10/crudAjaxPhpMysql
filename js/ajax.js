@@ -49,6 +49,22 @@ ajax.send("nombre= "+nombre+" &contrasena= "+contrasena+" &id= "+id);
 
 }
 
+function Eliminar(id){
+
+	ajax2 = objetoAjax();
+
+		ajax2.open("POST", "clases/eliminar.php", true);
+
+	ajax2.onreadystatechange=function(){
+		if(ajax2.readyState==4){
+			alert('Los datos fueron eliminados con exito!');
+			window.location.reload(true);
+		}
+	}
+ajax2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+ajax2.send("id=" +id);
+}
+
 
 
 
